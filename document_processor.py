@@ -121,4 +121,21 @@ class DocumentProcessor:
                     all_chunks.extend(chunks)
         
         logger.info(f"总共处理了 {len(all_chunks)} 个文档块")
-        return all_chunks 
+        return all_chunks
+
+if __name__ == "__main__":
+    import argparse
+
+    parser = argparse.ArgumentParser(description="文档处理工具：支持txt, pdf, docx, md")
+    parser.add_argument("path", type=str, help="要处理的文件或目录路径")
+    args = parser.parse_args()
+
+    processor = DocumentProcessor()
+    if os.path.isdir(args.path):
+        chunks = processor.process_directory(args.path)
+        print(f"目录 {args.path} 处理完成，共分割为 {len(chunks)} 个文档块。")
+    elif os.path.isfile(args.path):
+        chunks = processor.process_file(args.path)
+        print(f"文件 {args.path} 处理完成，共分割为 {len(chunks)} 个文档块。")
+    else:
+        print(f"路径不存在: {args.path}") 

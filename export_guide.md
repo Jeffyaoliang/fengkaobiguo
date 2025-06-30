@@ -49,7 +49,7 @@ streamlit run simple_web.py --server.port 8509
 
 ### 3. 访问地址
 - 本地访问：http://localhost:8509
-- 公网访问：https://2fae-183-209-48-229.ngrok-free.app
+- 公网访问：https://xxxx-xxx-xxx-xxx.ngrok-free.app
 
 ## 🔧 配置说明
 
